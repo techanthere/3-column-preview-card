@@ -1,0 +1,224 @@
+
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+      --bright-orange: hsl(31, 77%, 52%);
+      --dark-cyan: hsl(184, 100%, 22%);
+      --very-dark-cyan: hsl(179, 100%, 13%);
+      --transparent-white: hsla(0, 0%, 100%, 0.75);
+      --very-light-gray: hsl(0, 0%, 95%);
+      /* font size and styling */
+      --border-radius: 0.8rem;
+      --font-size: 0.9375rem;
+      --font-family-big-shoulders: 'Big Shoulders Display', cursive;
+      --font-family-lexend-deca: 'Lexend Deca', sans-serif;
+      --font-weight-regular: 400;
+      --font-weight-bold: 700;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--very-light-gray);
+    padding: 2rem 1rem;
+    font-size: var(--font-size);
+  }
+
+  .main{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: auto;
+  }
+
+  .sr-only{
+     position:absolute;
+     left:-10000px;
+     top:auto;
+     width:1px;
+     height:1px;
+     overflow:hidden;
+  }
+
+  .main__model
+  {
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    padding-top: 3.5rem;
+  }
+
+.main__model--sedan {
+  background-color: var(--bright-orange);
+  /* opacity: 0.8; */
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.main__model--sedan a {
+ color: var(--bright-orange)
+}
+
+.main__model--suv {
+  background-color: var(--dark-cyan);
+}
+
+.main__desc--more:hover{
+  background: transparent;
+  color: var(--very-light-gray);
+}
+
+.main__model--suv a{
+  color: var(--dark-cyan);
+}
+
+.main__model--luxury {
+  background-color: var(--very-dark-cyan);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.main__model--luxury a {
+ color: var(--very-dark-cyan);
+}
+
+.main__model--name {
+  font-family: var(--font-family-big-shoulders);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--very-light-gray);
+  margin: 1.5rem 0;
+  font-size: 2rem;
+}
+
+.main__model--desc {
+  font-family: var(--font-family-lexend-deca);
+  font-weight: var(--font-weight-regular);
+  max-width: 25ch;
+  /* max-width: 30ch; */
+  line-height: 1.5rem;
+  color: var(--transparent-white);
+}
+
+.main__desc--more {
+  text-decoration: none;
+  color: ;
+  align-self: flex-start;
+  padding: 0.7rem 2rem;
+  border: 2px solid var(--very-light-gray);
+  border-radius: 2rem;
+  margin-top: 4rem;
+  background: var(--very-light-gray);
+}
+
+.attribution {
+  color: var(--dark-cyan);
+  margin-top: 1rem;
+  font-weight: var(--font-weight-regular);
+  font-size: 0.8rem;
+}
+
+.attribution p
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.attribution a {
+  background-color: var(--very-dark-cyan);
+  margin: 0.5rem 1rem;
+  color: hsla(0, 0%, 255%);
+  padding: 0.2rem 1rem;
+  border: 1px solid white;
+  border-radius: 5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  /* margin: 0 0.5rem; */
+  font-weight: var(--font-weight-regular);
+}
+
+.attribution a:hover {
+  /* background-color: hsla(0, 0%, 255%); */
+  font-weight: var(--font-weight-bold);
+}
+
+.attribution a:first-of-type {
+  animation: 1s ease slideInFM;
+}
+
+.attribution a:last-of-type {
+  animation: 1.2s ease slideInMe;
+}
+
+@keyframes slideInFM {
+  0% {
+    transform: translateX(13rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInMe {
+  0% {
+    /* transform: translateY(-10rem); */
+    transform: scale(0);
+  }
+  100% {
+    /* transform: translateY(0); */
+    transform: scale(1);
+  }
+}
+
+@media only screen and (min-width: 850px){
+
+  .main {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .main__model {
+    border-radius: 0;
+  }
+
+  .main__model--sedan {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  .main__model--luxury {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  .attribution {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .attribution p {
+    margin-top: -1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .attribution a {
+    margin: 0;
+    margin-left: 0.3rem;
+  }
+}
